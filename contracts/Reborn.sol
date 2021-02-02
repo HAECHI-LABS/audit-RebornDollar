@@ -8,16 +8,16 @@ import "./erc20/ERC20Mintable.sol";
 import "./library/Pausable.sol";
 import "./library/Freezable.sol";
 
-contract SampleToken is
+contract Reborn is
     ERC20Lockable,
     ERC20Burnable,
     ERC20Mintable,
     Freezable
 {
-    string constant private _name = "SAMPLE";
-    string constant private _symbol = "SAM";
+    string constant private _name = "Reborn dollar";
+    string constant private _symbol = "REBD";
     uint8 constant private _decimals = 18;
-    uint256 constant private _initial_supply = 1_000_000_000;
+    uint256 constant private _initial_supply = 2_000_000_000;
 
     constructor() Ownable() {
         _mint(msg.sender, _initial_supply * (10**uint256(_decimals)));
@@ -33,7 +33,7 @@ contract SampleToken is
     {
         require(
             to != address(0),
-            "SAM/transfer : Should not send to zero address"
+            "REBD/transfer : Should not send to zero address"
         );
         _transfer(msg.sender, to, amount);
         success = true;
@@ -49,7 +49,7 @@ contract SampleToken is
     {
         require(
             to != address(0),
-            "SAM/transferFrom : Should not send to zero address"
+            "REBD/transferFrom : Should not send to zero address"
         );
         _transfer(from, to, amount);
         _approve(
@@ -67,7 +67,7 @@ contract SampleToken is
     {
         require(
             spender != address(0),
-            "SAM/approve : Should not approve zero address"
+            "REBD/approve : Should not approve zero address"
         );
         _approve(msg.sender, spender, amount);
         success = true;
